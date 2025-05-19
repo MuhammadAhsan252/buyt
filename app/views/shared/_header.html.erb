@@ -34,6 +34,24 @@
                                 </li>
                             </ul>
                         </li>
+                    <% elsif buyer_signed_in? %>
+                        <li class="nav-item dropdown">
+                            <a class="py-3 nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable" href="#"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="/assets/images/profile_photo.jpeg" width="35" height="35"
+                                    class="img-fluid rounded-circle" alt="Luke Reeves">
+                            </a>
+                            <ul class="dropdown-menu border-0 shadow bsb-zoomIn" aria-labelledby="accountDropdown">
+                                <li><a class="dropdown-item" href="/seller_profile.html">My Profile</a></li>
+                                <li><a class="dropdown-item" href="<%= edit_buyer_registration_path %>">Edit Account</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <%= link_to "Logout", destroy_buyer_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
+                                </li>
+                            </ul>
+                        </li>
                     <% else %>
                         <li class="nav-item dropdown">
                             <a class="dropdown-toggle btn btn-outline-primary my-3 me-2" href="#!" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Login</a>
@@ -42,7 +60,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="/buyer_login.html">Login as a buyer</a></li>
+                            <li><a class="dropdown-item" href="<%= new_buyer_session_path %>">Login as a buyer</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -52,7 +70,7 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="/buyer_registration.html">Register as a buyer</a></li>
+                                <li><a class="dropdown-item" href="<%= new_buyer_registration_path %>">Register as a buyer</a></li>
                             </ul>
                         </li>
                     <% end %>
