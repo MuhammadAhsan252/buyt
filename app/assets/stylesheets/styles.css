@@ -1,0 +1,145 @@
+.bsb-hero-5 .container > .row {
+  min-height: 500px;
+}
+
+.link-primary {
+  color: #4682b4 !important;
+}
+
+.link-primary:hover {
+  color: #4682b4 !important;
+}
+
+.text-primary {
+  color: #4682b4 !important;
+}
+
+
+.btn-primary {
+  background-color: #4682b4 !important;
+  border-color: #4682b4 !important;
+}
+
+.btn-outline-primary {
+  color: #4682b4 !important;
+  border-color: #4682b4 !important;
+}
+
+.badge-outline-primary {
+  color: #4682b4 !important;
+  border-color: #4682b4 !important;
+  border: 1px solid #4682b4 !important;
+}
+
+.btn-outline-primary:hover {
+  color: #fff !important;
+  background-color: #4682b4 !important;
+  border-color: #4682b4 !important;
+}
+
+.btn.show {
+  background-color: #4682b4 !important;
+  border-color: #4682b4 !important;
+  color: #fff !important;
+}
+
+.bg-primary {
+  background-color: #4682b4 !important;
+  border-color: #4682b4 !important;
+}
+
+.dropdown-item:active {
+  background-color: #4682b4 !important;
+}
+
+.text-bg-primary {
+  background-color: #4682b4 !important;
+  border-color: #4682b4 !important;
+}
+
+.tagify {
+  --tag-bg: #4682b4;
+  --tag-text-color: #fff;
+  --tag-remove-btn-color: #fff;
+  --tag-hover: #4682b4;
+  --tag-remove-btn-bg--hover: #4682b4;
+  --tag-remove-bg: #4682b4;
+}
+
+.tagify__dropdown__item--active {
+  background: #4682b4;
+  color: #fff;
+}
+
+.slider::-webkit-slider-thumb {
+  background: #4682b4;
+}
+.message-bubble {
+    max-width: 75%;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.message-incoming {
+    align-self: flex-start;
+    background-color: white;
+    border: 1px solid #4682b4;
+    color: #4682b4;
+}
+
+.message-outgoing {
+    align-self: flex-end;
+    background-color: #4682b4;
+    color: white;
+}
+
+.messages-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-time {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.7rem;
+}
+
+.chat-container {
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: scroll;
+}
+
+.input-with-button {
+    position: relative; /* Establishes a positioning context for the button */
+    display: flex; /* Allows the input to take up available space */
+    align-items: center; /* Vertically aligns the items */
+}
+
+.input-with-button .form-control {
+    flex-grow: 1; /* Ensures the input fills the container */
+    padding-right: 40px; /* Add padding to the right to make space for the button icon */
+    /* Inherit or define other form-control styles as needed (border, padding, etc.) */
+    border-color: #4682b4; /* Set border color to match the theme */
+    box-shadow: none; /* Remove default focus box-shadow if present */
+}
+
+.input-with-button .send-button {
+    position: absolute; /* Positions the button relative to the .input-with-button container */
+    right: 10px; /* Adjust distance from the right edge */
+    top: 50%; /* Starts the button's top edge at the vertical middle */
+    transform: translateY(-50%); /* Shifts the button up by half its height to vertically center it */
+    border: none; /* Remove default button border */
+    background: transparent; /* Make button background transparent */
+    color: #4682b4; /* Set icon color to match the theme */
+    padding: 0; /* Remove default button padding */
+    cursor: pointer; /* Indicate it's clickable */
+    z-index: 2; /* Ensure the button is above the input field */
+}
+
+/* Optional: Adjust icon size if needed */
+.input-with-button .send-button i {
+     font-size: 1.2rem; /* Example: Make the icon slightly larger */
+}
