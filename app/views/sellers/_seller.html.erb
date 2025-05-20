@@ -1,0 +1,24 @@
+<div class="col-12 col-md-10 offset-md-1 mb-2">
+    <div class="card bg-light p-3 m-0">
+        <div class="row gy-3 gy-md-0 align-items-md-center">
+            <div class="col-md-3">
+                <%= image_tag 'profile_photo.jpeg', class: 'img-fluid rounded', alt: 'lead' %>
+            </div>
+            <div class="col-md-9">
+                <div class="card-body p-0">
+                    <h2 class="card-title fs-5 h4 mb-3">
+                        <a class="link-primary text-decoration-none"
+                            href="<%= seller_path(seller) %>">
+                            <%= seller.first_name %> <%= seller.last_name %>
+                        </a>
+                    </h2>
+                    <p class="card-text fs-7 lead"><%= seller.position %> . <%= seller.state %> <%= seller.country%></p> 
+                    <p class="card-text fs-6 lead">
+                        <%= truncate(seller.bio, length: 200) %>
+                    </p>
+                    <h5><span class="badge badge-outline-primary"><%= seller.industry %></span></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

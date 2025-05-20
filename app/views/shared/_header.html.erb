@@ -20,11 +20,16 @@
                         <li class="nav-item dropdown">
                             <a class="py-3 nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable" href="#"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="/assets/images/profile_photo.jpeg" width="35" height="35"
-                                    class="img-fluid rounded-circle" alt="Luke Reeves">
+                                <% if current_seller.profile_photo.attached? %>
+                                        <%= image_tag current_seller.profile_photo, class: 'rounded-circle', alt: 'lead', 
+                                            height: '35', width: '35' %>
+                                <% else %>
+                                    <%= image_tag 'profile_photo.jpeg', class: 'rounded-circle', alt: 'lead', 
+                                        height: '35', width: '35' %>
+                                <% end %>
                             </a>
                             <ul class="dropdown-menu border-0 shadow bsb-zoomIn" aria-labelledby="accountDropdown">
-                                <li><a class="dropdown-item" href="/seller_profile.html">My Profile</a></li>
+                                <li><a class="dropdown-item" href="<%= seller_path(current_seller) %>">My Profile</a></li>
                                 <li><a class="dropdown-item" href="<%= edit_seller_registration_path %>">Edit Account</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
