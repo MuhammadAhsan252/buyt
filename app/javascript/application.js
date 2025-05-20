@@ -9,7 +9,7 @@ function initTagifyInputs() {
             "CRM", "ERP", "E-commerce", "CMS", "Web App", "Mobile App", "SaaS", "PWA", "AI/ML", "Blockchain", "IoT", "AR/VR"
         ],
         originalInputValueFormat: valuesArr => valuesArr.map(item => item.value),
-        userInput: false,
+        enforceWhitelist: true,
         dropdown: {
           maxItems: 10,
           classname: "tags-look",
@@ -25,7 +25,7 @@ function initTagifyInputs() {
             "Workflow Automation", "Data Management", "Customer Engagement", "Inventory Control", "Sales Tracking", "Marketing Automation", "Reporting & Analytics", "Collaboration Tools", "Task Management", "Time Tracking", "Document Management", "Project Management", "Lead Generation", "Email Marketing", "Social Media Management", "Customer Support"
         ],
         originalInputValueFormat: valuesArr => valuesArr.map(item => item.value),
-        userInput: false,
+        enforceWhitelist: true,
         dropdown: {
           maxItems: 10,
           classname: "tags-look",
