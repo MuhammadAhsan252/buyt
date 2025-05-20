@@ -5,4 +5,5 @@ class Seller < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :profile_photo
   has_many :testimonials, dependent: :destroy
+  has_many :projects, dependent: :destroy
 end

@@ -102,56 +102,13 @@
                     <div class="card-body p-4">
                         <h5 class="mb-3">
                             Case References
-                            <button class="btn btn-sm btn-primary float-end" data-bs-toggle="modal" data-bs-target="#referenceModal">
+                            <%= link_to new_seller_project_path(@seller), data: {turbo_frame: "project"}, class: "btn btn-sm btn-primary float-end" do %>
                                 <i class="bi bi-plus"></i>
-                                Add Reference
-                            </button>
+                                Add Project
+                            <% end %>
                         </h5>
                         <div class="row g-0">
-                            <div class="col-12">
-                                <div class="p-3 border border-1 m-1 rounded">
-                                    <strong>Inventory Management System </strong>
-                                    <a href="#"><i class="bi bi-box-arrow-up-right float-end text-primary"></i></a>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
-                                        excepturi explicabo perspiciatis voluptatum veritatis quas, 
-                                        labore fugiat in corrupti voluptas magni et non.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="p-3 border border-1 m-1 rounded">
-                                    <strong>Inventory Management System </strong>
-                                    <a href="#"><i class="bi bi-box-arrow-up-right float-end text-primary"></i></a>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
-                                        excepturi explicabo perspiciatis voluptatum veritatis quas, 
-                                        labore fugiat in corrupti voluptas magni et non.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="p-3 border border-1 m-1 rounded">
-                                    <strong>Inventory Management System </strong>
-                                    <a href="#"><i class="bi bi-box-arrow-up-right float-end text-primary"></i></a>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
-                                        excepturi explicabo perspiciatis voluptatum veritatis quas, 
-                                        labore fugiat in corrupti voluptas magni et non.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="p-3 border border-1 m-1 rounded">
-                                    <strong>Inventory Management System </strong>
-                                    <a href="#"><i class="bi bi-box-arrow-up-right float-end text-primary"></i></a>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
-                                        excepturi explicabo perspiciatis voluptatum veritatis quas, 
-                                        labore fugiat in corrupti voluptas magni et non.
-                                    </p>
-                                </div>
-                            </div>
+                            <%= render @seller.projects %>
                         </div>
                     </div>
                 </div>
@@ -161,4 +118,5 @@
 
 </section>
 
-<%= turbo_frame_tag "testimonial" %>    
+<%= turbo_frame_tag "testimonial" %> 
+<%= turbo_frame_tag "project" %>   
