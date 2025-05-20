@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :buyers, only: [ :index, :show, :edit, :update ]
   resources :sellers, only: [ :index, :show, :edit, :update ] do
     resources :testimonials, only: [ :new, :create, :edit, :update, :destroy ]
+    resources :projects, only: [ :new, :create, :edit, :update, :destroy ]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

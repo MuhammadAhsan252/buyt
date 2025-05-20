@@ -1,0 +1,41 @@
+<%= turbo_frame_tag "project" do %>
+    <div class="modal fade" tabindex="-1" role="dialog" data-controller="remote-modal" data-remote-modal-show-value="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Project</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <%= form_with(model: [seller, project], data: {turbo: false}) do |form| %>
+                        <div class="row gy-3 gy-md-4 overflow-hidden">
+                            <div class="col-12">
+                                <label for="name" class="form-label">Project Name <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <%= form.text_field :name, class: 'form-control', id: 'name', placeholder: 'Project Name', required: true %>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="testimonial_details" class="form-label">Details <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <%= form.text_area :details, class: 'form-control', id: 'testimonial_details', placeholder: 'Testimonial Details', required: true %>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="link" class="form-label">Project Link <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <%= form.text_field :link, class: 'form-control', id: 'project_name', placeholder: 'Project Name', required: true %>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer mt-3">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <%= form.submit 'Save', class: 'btn btn-primary', id: 'submit_testimonial' %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>

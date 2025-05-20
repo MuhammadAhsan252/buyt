@@ -1,11 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  client: MyString
+  name: MyString
   details: MyText
+  link: MyString
   seller_id: 1
 
 two:
-  client: MyString
+  name: MyString
   details: MyText
+  link: MyString
   seller_id: 2
