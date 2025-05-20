@@ -1,0 +1,38 @@
+<%= turbo_frame_tag "testimonial" do %>
+    <div class="modal fade" tabindex="-1" role="dialog" data-controller="remote-modal" data-remote-modal-show-value="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Testimonial</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <%= form_with(model: [seller, testimonial], data: {turbo: false}) do |form| %>
+                        <div class="row gy-3 gy-md-4 overflow-hidden">
+                            <div class="col-12">
+                                <label for="client" class="form-label">Client Name <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-person"></i>
+                                    </span>
+                                    <%= form.text_field :client, class: 'form-control', id: 'client_name', placeholder: 'Client Name', required: true %>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="testimonial_details" class="form-label">Details <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <%= form.text_area :details, class: 'form-control', id: 'testimonial_details', placeholder: 'Testimonial Details', required: true %>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer mt-3">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <%= form.submit 'Save', class: 'btn btn-primary', id: 'submit_testimonial' %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>

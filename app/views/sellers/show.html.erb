@@ -86,66 +86,14 @@
                     <div class="card-body p-4">
                         <h5 class="mb-3">
                             Testimonials
-                            <button class="btn btn-sm btn-primary float-end" data-bs-toggle="modal" data-bs-target="#testimonialModal">
+                            <%= link_to new_seller_testimonial_path(@seller), data: {turbo_frame: "testimonial"}, class: "btn btn-sm btn-primary float-end" do %>
                                 <i class="bi bi-plus"></i>
                                 Add Testimonial
-                            </button>
+                            <% end %>
+                            
                         </h5>
                         <div class="row g-0">
-                            <div class="col-12 col-md-4">
-                                <div class="p-3 border border-1 m-1 rounded">
-                                    <strong>Mark </strong>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
-                                        excepturi explicabo perspiciatis voluptatum veritatis quas
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4">
-                                <div class="p-3 border border-1 m-1 rounded">
-                                    <strong>Mark </strong>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
-                                        excepturi explicabo perspiciatis voluptatum veritatis quas
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4">
-                                <div class="p-3 border border-1 m-1 rounded">
-                                    <strong>Mark </strong>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
-                                        excepturi explicabo perspiciatis voluptatum veritatis quas
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4">
-                                <div class="p-3 border border-1 m-1 rounded">
-                                    <strong>Mark </strong>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
-                                        excepturi explicabo perspiciatis voluptatum veritatis quas
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4">
-                                <div class="p-3 border border-1 m-1 rounded">
-                                    <strong>Mark </strong>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
-                                        excepturi explicabo perspiciatis voluptatum veritatis quas
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4">
-                                <div class="p-3 border border-1 m-1 rounded">
-                                    <strong>Mark </strong>
-                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
-                                        excepturi explicabo perspiciatis voluptatum veritatis quas
-                                    </p>
-                                </div>
-                            </div>
+                            <%= render @seller.testimonials %>
                         </div>
                     </div>
                 </div>
@@ -212,3 +160,5 @@
     </div>
 
 </section>
+
+<%= turbo_frame_tag "testimonial" %>    
