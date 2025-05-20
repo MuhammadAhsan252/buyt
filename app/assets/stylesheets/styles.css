@@ -143,3 +143,16 @@
 .input-with-button .send-button i {
      font-size: 1.2rem; /* Example: Make the icon slightly larger */
 }
+
+.tagify{
+  line-height: 1.5;
+  padding: .375rem .375rem;
+}
+
+input::file-selector-button {
+  background-color: transparent;
+  color: #4682b4;
+  padding: 0.2em;
+  border: 1px solid #4682b4;
+  border-radius: 3px;
+}

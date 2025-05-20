@@ -1,0 +1,214 @@
+<section class="bg-light py-3 py-md-5 py-xl-8">
+
+    <div class="container">
+        <div class="row gy-4 gy-lg-0">
+            <div class="col-12 col-lg-4 col-xl-3">
+                <div class="row gy-4">
+                    <div class="col-12">
+                        <div class="card widget-card border-light shadow-sm">
+                            <div class="card-body">
+                                <div class="text-center mb-3">
+                                    <% if @seller.profile_photo.attached? %>
+                                            <%= image_tag @seller.profile_photo, class: 'rounded-circle', alt: 'lead', 
+                                                height: '100', width: '100' %>
+                                    <% else %>
+                                        <%= image_tag 'profile_photo.jpeg', class: 'rounded-circle', alt: 'lead', 
+                                            height: '100', width: '100' %>
+                                    <% end %>
+                                </div>
+                                <h5 class="text-center mb-1"><%= @seller.first_name %> <%= @seller.last_name %></h5>
+                                <p class="text-center text-secondary mb-2"><%= @seller.position %></p>
+                                <p class="text-center text-secondary mb-4"><%= @seller.industry %></p>
+                                <div class="d-grid m-0">
+                                    <a class="btn btn-primary" type="button" href="<%= edit_seller_path %>">
+                                        <i class="bi bi-pen"></i> 
+                                        Edit Profile
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-12">
+                    <div class="card widget-card border-light shadow-sm">
+                        <div class="card-header text-bg-primary">Social Accounts</div>
+                        <div class="card-body">
+                        <a href="#!" class="d-inline-block bg-dark link-light lh-1 p-2 rounded">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="#!" class="d-inline-block bg-dark link-light lh-1 p-2 rounded">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="#!" class="d-inline-block bg-dark link-light lh-1 p-2 rounded">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#!" class="d-inline-block bg-dark link-light lh-1 p-2 rounded">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        </div>
+                    </div>
+                </div> -->
+                </div>
+            </div>
+            <div class="col-12 col-lg-8 col-xl-9">
+                <div class="card widget-card border-light shadow-sm">
+                    <div class="card-body p-4">
+                        <h5 class="mb-3">About</h5>
+                        <p class="lead mb-3"><%= @seller.bio %></p>
+                        <h5 class="mb-3">Profile</h5>
+                        <div class="row g-0">
+                            <div class="col-5 col-md-3 border border-1 m-1">
+                                <div class="p-3">Geo Location</div>
+                            </div>
+                            <div class="col-6 col-md-8 offset-md border border-1 m-1">
+                                <div class="p-3">
+                                    <%= @seller.city %>, <%= @seller.state %>, <%= @seller.country %>
+                                </div>
+                            </div>
+
+                            <div class="col-5 col-md-3 border border-1 m-1">
+                                <div class="p-3">Solutions Expertise</div>
+                            </div>
+                            <div class="col-6 col-md-8 offset-md border border-1 m-1">
+                                <div class="p-3"><%= @seller.solutions.join(', ') %></div>
+                            </div>
+
+                            <div class="col-5 col-md-3 border border-1 m-1">
+                                <div class="p-3">Pain Points</div>
+                            </div>
+                            <div class="col-6 col-md-8 offset-md border border-1 m-1">
+                                <div class="p-3"><%= @seller.pain_points.join(', ') %></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card widget-card border-light shadow-sm mt-5">
+                    <div class="card-body p-4">
+                        <h5 class="mb-3">
+                            Testimonials
+                            <button class="btn btn-sm btn-primary float-end" data-bs-toggle="modal" data-bs-target="#testimonialModal">
+                                <i class="bi bi-plus"></i>
+                                Add Testimonial
+                            </button>
+                        </h5>
+                        <div class="row g-0">
+                            <div class="col-12 col-md-4">
+                                <div class="p-3 border border-1 m-1 rounded">
+                                    <strong>Mark </strong>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
+                                        excepturi explicabo perspiciatis voluptatum veritatis quas
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="p-3 border border-1 m-1 rounded">
+                                    <strong>Mark </strong>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
+                                        excepturi explicabo perspiciatis voluptatum veritatis quas
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="p-3 border border-1 m-1 rounded">
+                                    <strong>Mark </strong>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
+                                        excepturi explicabo perspiciatis voluptatum veritatis quas
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="p-3 border border-1 m-1 rounded">
+                                    <strong>Mark </strong>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
+                                        excepturi explicabo perspiciatis voluptatum veritatis quas
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="p-3 border border-1 m-1 rounded">
+                                    <strong>Mark </strong>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
+                                        excepturi explicabo perspiciatis voluptatum veritatis quas
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="p-3 border border-1 m-1 rounded">
+                                    <strong>Mark </strong>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
+                                        excepturi explicabo perspiciatis voluptatum veritatis quas
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card widget-card border-light shadow-sm mt-5">
+                    <div class="card-body p-4">
+                        <h5 class="mb-3">
+                            Case References
+                            <button class="btn btn-sm btn-primary float-end" data-bs-toggle="modal" data-bs-target="#referenceModal">
+                                <i class="bi bi-plus"></i>
+                                Add Reference
+                            </button>
+                        </h5>
+                        <div class="row g-0">
+                            <div class="col-12">
+                                <div class="p-3 border border-1 m-1 rounded">
+                                    <strong>Inventory Management System </strong>
+                                    <a href="#"><i class="bi bi-box-arrow-up-right float-end text-primary"></i></a>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
+                                        excepturi explicabo perspiciatis voluptatum veritatis quas, 
+                                        labore fugiat in corrupti voluptas magni et non.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="p-3 border border-1 m-1 rounded">
+                                    <strong>Inventory Management System </strong>
+                                    <a href="#"><i class="bi bi-box-arrow-up-right float-end text-primary"></i></a>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
+                                        excepturi explicabo perspiciatis voluptatum veritatis quas, 
+                                        labore fugiat in corrupti voluptas magni et non.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="p-3 border border-1 m-1 rounded">
+                                    <strong>Inventory Management System </strong>
+                                    <a href="#"><i class="bi bi-box-arrow-up-right float-end text-primary"></i></a>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
+                                        excepturi explicabo perspiciatis voluptatum veritatis quas, 
+                                        labore fugiat in corrupti voluptas magni et non.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="p-3 border border-1 m-1 rounded">
+                                    <strong>Inventory Management System </strong>
+                                    <a href="#"><i class="bi bi-box-arrow-up-right float-end text-primary"></i></a>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                        Facilis dolore quo rem at laboriosam illum, aspernatur, 
+                                        excepturi explicabo perspiciatis voluptatum veritatis quas, 
+                                        labore fugiat in corrupti voluptas magni et non.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
