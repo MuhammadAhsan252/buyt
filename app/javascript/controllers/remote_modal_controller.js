@@ -7,10 +7,16 @@ export default class extends Controller {
   }
 
   connect() {
+    this.modal = new bootstrap.Modal(this.element)
+
     if (this.showValue) {
-      this.modal = new bootstrap.Modal(this.element)
       this.modal.show()
     }
+
+    this.element.addEventListener("hidden.bs.modal", () => {
+      // Optionally remove the modal from the DOM when hidden
+      this.element.remove()
+    })
   }
 
   disconnect() {
