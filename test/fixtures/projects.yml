@@ -4,8 +4,10 @@ one:
   name: MyString
   details: MyText
   link: MyString
+  seller_id: 1
 
 two:
   name: MyString
   details: MyText
   link: MyString
+  seller_id: 2

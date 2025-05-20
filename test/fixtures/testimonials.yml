@@ -3,7 +3,9 @@
 one:
   client: MyString
   details: MyText
+  seller_id: 1
 
 two:
   client: MyString
   details: MyText
+  seller_id: 2
