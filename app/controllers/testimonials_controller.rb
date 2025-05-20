@@ -1,5 +1,5 @@
 class TestimonialsController < ApplicationController
-  before_action :set_testimonial, only: [:edit, :update, :destroy]
+  before_action :set_testimonial, only: [ :edit, :update, :destroy ]
   before_action :authenticate_seller!
   before_action :set_seller
 
@@ -13,7 +13,7 @@ class TestimonialsController < ApplicationController
     @testimonial = Testimonial.new(testimonial_params)
     @testimonial.seller = @seller
     if @testimonial.save
-      redirect_to seller_url(@seller), notice: 'Testimonial was successfully created.'
+      redirect_to seller_url(@seller), notice: "Testimonial was successfully created."
     else
       render :new
     end
@@ -26,7 +26,7 @@ class TestimonialsController < ApplicationController
   # PATCH/PUT /testimonials/:id
   def update
     if @testimonial.update(testimonial_params)
-      redirect_to seller_url(@seller), notice: 'Testimonial was successfully updated.'
+      redirect_to seller_url(@seller), notice: "Testimonial was successfully updated."
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class TestimonialsController < ApplicationController
   # DELETE /testimonials/:id
   def destroy
     @testimonial.destroy
-    redirect_to seller_url(@seller), notice: 'Testimonial was successfully destroyed.'
+    redirect_to seller_url(@seller), notice: "Testimonial was successfully destroyed."
   end
 
   private
@@ -50,5 +50,8 @@ class TestimonialsController < ApplicationController
 
   def set_seller
     @seller = Seller.find(params[:seller_id])
+    unless current_seller == @seller
+        redirect_to root_path, alert: "You are not authorized to manage testimonials for this seller."
+    end
   end
 end

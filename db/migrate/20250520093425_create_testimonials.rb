@@ -4,7 +4,7 @@ class CreateTestimonials < ActiveRecord::Migration[8.0]
       t.string :client
       t.text :details
       t.references :seller, null: false, foreign_key: true
-      
+
       t.timestamps
     end
   end
