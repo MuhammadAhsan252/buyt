@@ -28,12 +28,12 @@ class SellersController < ApplicationController
 
     def seller_params
         if params[:seller][:solutions].is_a?(String)
-            params[:seller][:solutions] = params[:seller][:solutions].split(',').map(&:strip)
+            params[:seller][:solutions] = params[:seller][:solutions].split(",").map(&:strip)
         end
         if params[:seller][:pain_points].is_a?(String)
-            params[:seller][:pain_points] = params[:seller][:pain_points].split(',').map(&:strip)
+            params[:seller][:pain_points] = params[:seller][:pain_points].split(",").map(&:strip)
         end
-        params.require(:seller).permit(:first_name, :last_name, :bio, :position, :city, :state, :country, :zip_code, :industry, :profile_photo, :solutions => [], :pain_points => [])
+        params.require(:seller).permit(:first_name, :last_name, :bio, :position, :city, :state, :country, :zip_code, :industry, :profile_photo, solutions: [], pain_points: [])
     end
 
     def same_seller
@@ -42,4 +42,3 @@ class SellersController < ApplicationController
         end
     end
 end
-
