@@ -156,3 +156,20 @@ input::file-selector-button {
   border: 1px solid #4682b4;
   border-radius: 3px;
 }
+
+.custom-alert {
+  position: fixed;
+  top: 50px; /* Adjust based on how far from the top you want it */
+  right: 20px; /* Adjust based on how far from the right edge you want it */
+  z-index: 200000; /* Ensures the alert stays on top of other content */
+}
+
+@media (min-width: 992px) {
+  /* CUSTOM WIDTHS */
+  .w-md-25 {
+    width: 25% !important;
+  }
+  .w-md-75 {
+    width: 70% !important;
+  }
+}
