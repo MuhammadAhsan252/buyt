@@ -1,0 +1,28 @@
+<div id="stakeholders-container" class= "nested-form-wrapper" data-new-record="<%= f.object.new_record? %>">
+    <div class="row mb-3 stakeholder-row">
+        <div class="col-12 col-md-4">
+            <label for="name" class="form-label">Name</label>
+            <div class="input-group">
+                <%= f.text_field :name, class: "form-control", placeholder: "John Doe"%>
+            </div>
+        </div>
+        <div class="col-12 col-md-3">
+            <label for="position" class="form-label">Position</label>
+            <div class="input-group">
+                <%= f.text_field :position, class: "form-control", placeholder: "Project Manager" %>
+            </div>
+        </div>
+        <div class="col-12 col-md-3">
+            <label for="linkedin" class="form-label">LinkedIn</label>
+            <div class="input-group">
+                <%= f.text_field :linkedin, class: "form-control", placeholder: "https://www.linkedin.com/in/johndoe" %>
+            </div>
+        </div>
+        <div class="col-12 col-md-2 align-self-end">
+            <button class="btn btn-outline-danger" type="button" data-action="nested-form#remove">
+                <i class="bi bi-trash"></i>
+            </button>
+            <%= f.hidden_field :_destroy %>
+        </div>
+    </div>
+</div>

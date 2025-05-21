@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_20_114625) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_21_094517) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -103,6 +103,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_20_114625) do
     t.index ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true
   end
 
+  create_table "stakeholders", force: :cascade do |t|
+    t.string "name"
+    t.string "position"
+    t.string "linkedin"
+    t.bigint "buyer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_stakeholders_on_buyer_id"
+  end
+
   create_table "testimonials", force: :cascade do |t|
     t.string "client"
     t.text "details"
@@ -115,5 +125,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_20_114625) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "projects", "sellers"
+  add_foreign_key "stakeholders", "buyers"
   add_foreign_key "testimonials", "sellers"
 end

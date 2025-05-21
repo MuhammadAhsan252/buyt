@@ -11,6 +11,7 @@ class BuyersController < ApplicationController
     end
 
     def edit
+        @buyer.stakeholders.build
     end
 
     def update
@@ -33,7 +34,7 @@ class BuyersController < ApplicationController
         if params[:buyer][:pain_points].is_a?(String)
             params[:buyer][:pain_points] = params[:buyer][:pain_points].split(",").map(&:strip)
         end
-        params.require(:buyer).permit(:first_name, :last_name, :bio, :position, :city, :state, :country, :zip_code, :industry, :profile_photo, :ai_strategy, solutions: [], pain_points: [])
+        params.require(:buyer).permit(:first_name, :last_name, :bio, :position, :city, :state, :country, :zip_code, :industry, :profile_photo, :ai_strategy, solutions: [], pain_points: [], stakeholders_attributes: [ :id, :name, :position, :linkedin, :_destroy ])
     end
 
     def same_buyer
