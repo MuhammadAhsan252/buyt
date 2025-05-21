@@ -121,20 +121,17 @@
                                 <div class="p-3"><%= @buyer.pain_points.join(', ') %></div>
                             </div>
 
-                            <div class="col-5 col-md-3 border border-1 m-1">
+                            <div class="col-5 col-md-3 border border-1 m-1 mb-2">
                                 <div class="p-3">Typical Stakeholders</div>
                             </div>
                             <div class="col-6 col-md-8 m-1">
-                                <div class="col-12 border border-1 mb-2">
-                                    <div class="p-3">George Martin
-                                        <a href="#"><i class="bi bi-box-arrow-up-right float-end text-primary"></i></a>
+                                <% @buyer.stakeholders.each do |stakeholder| %>
+                                    <div class="col-12 border border-1 mb-1">
+                                        <div class="p-3"><%= stakeholder.name %>
+                                            <a href="<%= stakeholder.linkedin %>"><i class="bi bi-box-arrow-up-right float-end text-primary"></i></a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-12 border border-1">
-                                    <div class="p-3">George Martin
-                                        <a href="#"><i class="bi bi-box-arrow-up-right float-end text-primary"></i></a>
-                                    </div>
-                                </div>
+                                <% end %>
                             </div>
                         </div>
                     </div>
