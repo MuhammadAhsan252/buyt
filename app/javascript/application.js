@@ -2,6 +2,7 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
+import "chartkick/chart.js"
 
 function initTagifyInputs() {
     document.querySelectorAll('.solutions input[data-role="tag-input"]').forEach(function (el) {
@@ -37,8 +38,18 @@ function initTagifyInputs() {
     });
   }
 
+function initTooltip() {
+  const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  tooltipTriggerList.map(function (tooltipTriggerEl) {
+      new bootstrap.Tooltip(tooltipTriggerEl, {
+          container: 'body' // Appends tooltip to the body for better positioning
+      });
+  });
+}
+
   document.addEventListener('turbo:load', () => {
     initTagifyInputs();
+    initTooltip();
   });
   
   document.addEventListener('turbo:render', () => {
