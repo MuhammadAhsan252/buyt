@@ -11,7 +11,7 @@
             </div>
           </div>
 
-          <%= form_with model: @buyer, local: true do |f| %>
+          <%= form_with model: @buyer, local: true, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
             <div class="row gy-3 gy-md-4 overflow-hidden">
 
               <div class="col-12">
@@ -94,6 +94,31 @@
                 <%= f.label :pain_points, "Pain Points", class: "form-label" %>
                 <%= f.text_field :pain_points, value: @buyer.pain_points&.join(','), class: "form-control", data: { role: "tag-input" } %>
                 <div class="form-text">Type to get suggestions</div>
+              </div>
+
+
+              <div class="col-12 p-0">
+                  <div class="container mt-2">
+                      <p>
+                          <strong>Stakeholders</strong>
+                          <i class="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="who are the typical stakeholders involved in evaluating a technology project at your business"></i>
+                      </p>
+                        <template data-nested-form-target="template">
+                          <%= f.fields_for :stakeholders, Stakeholder.new, child_index: 'NEW_RECORD' do |stakeholder_fields| %>
+                            <%= render "stakeholder_form", f: stakeholder_fields %>
+                          <% end %>
+                        </template>
+
+                          <%= f.fields_for :stakeholders do |stakeholders_fields| %>
+                            <%= render "stakeholder_form", f: stakeholders_fields %>
+                          <% end %>
+
+                          <!-- Inserted elements will be injected before that target. -->
+                          <div data-nested-form-target="target"></div>
+                          <button class="btn btn-outline-primary add-stakeholder"  data-action="nested-form#add" type="button">
+                              <i class="bi bi-plus"></i>
+                          </button>
+                  </div>
               </div>
 
               <div class="col-12">
