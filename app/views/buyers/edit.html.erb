@@ -1,0 +1,111 @@
+<div class="bg-light py-3 py-md-5">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-12 col-md-11 col-lg-8">
+        <div class="bg-white p-4 p-md-5 rounded shadow-sm">
+          <div class="row">
+            <div class="col-12">
+              <div class="mb-5">
+                <h4>Edit Profile</h4>
+              </div>
+            </div>
+          </div>
+
+          <%= form_with model: @buyer, local: true do |f| %>
+            <div class="row gy-3 gy-md-4 overflow-hidden">
+
+              <div class="col-12">
+                <div class="row gy-2">
+                  <div class="col-2">
+                    <% if @buyer.profile_photo.attached? %>
+                      <%= image_tag @buyer.profile_photo, class: "rounded-circle", width: 100, height: 100 %>
+                    <% else %>
+                        <%= image_tag 'profile_photo.jpeg', class: "rounded-circle", width: 100, height: 100 %>
+                    <% end %>
+                  </div>
+                  <div class="col-4 col-md-4 align-self-center">
+                    <%= f.file_field :profile_photo, id: "profile_photo" %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <%= f.label :first_name, class: "form-label" %>
+                <%= f.text_field :first_name, class: "form-control", placeholder: "John", required: true %>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <%= f.label :last_name, class: "form-label" %>
+                <%= f.text_field :last_name, class: "form-control", placeholder: "Doe", required: true %>
+              </div>
+
+              <div class="col-12">
+                <%= f.label :bio, class: "form-label" %>
+                <%= f.text_area :bio, class: "form-control", rows: 4, placeholder: "Tell us about yourself", required: true %>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <%= f.label :position, "Role", class: "form-label" %>
+                <%= f.text_field :position, class: "form-control", placeholder: "Project Manager", required: true %>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <%= f.label :country, class: "form-label" %>
+                <%= f.select :country, options_for_select(["United States", "United Kingdom", "Canada", "Australia", "Germany"], @buyer.country), { prompt: "Select your country" }, class: "form-select", required: true %>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <%= f.label :state, class: "form-label" %>
+                <%= f.text_field :state, class: "form-control", placeholder: "California", required: true %>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <%= f.label :city, class: "form-label" %>
+                <%= f.text_field :city, class: "form-control", placeholder: "Los Angeles", required: true %>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <%= f.label :zip_code, "Zip/Postal Code", class: "form-label" %>
+                <%= f.text_field :zip_code, class: "form-control", placeholder: "90001", required: true %>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <%= f.label :industry, class: "form-label" %>
+                <%= f.select :industry, options_for_select(["Information Technology", "Finance", "Healthcare", "Education", "Manufacturing"], @buyer.industry), { prompt: "Select your industry" }, class: "form-select", required: true %>
+              </div>
+
+            <div class="col-12">
+                <label for="ai_strategy" class="form-label">AI Strategy
+                    <i class="bi bi-info-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="what percentage of your business tasks do you want to be on AI by end of calendar year."></i>
+                </label>
+                <div class="input-group">
+                    <%= content_tag :output, @buyer.ai_strategy || 50, id: 'ai_strategy_output' %>%
+                    <%= f.range_field :ai_strategy, min: 0, max: 100, class: "form-range slider", onInput: "document.getElementById('ai_strategy_output').textContent = this.value" %>
+                </div>
+            </div>
+
+              <div class="col-12 solutions">
+                <%= f.label :solutions, "Tech Projects", class: "form-label" %>
+                <%= f.text_field :solutions, value: @buyer.solutions&.join(','), class: "form-control", data: { role: "tag-input" } %>
+                <div class="form-text">Type to get suggestions</div>
+              </div>
+
+              <div class="col-12 pain_points">
+                <%= f.label :pain_points, "Pain Points", class: "form-label" %>
+                <%= f.text_field :pain_points, value: @buyer.pain_points&.join(','), class: "form-control", data: { role: "tag-input" } %>
+                <div class="form-text">Type to get suggestions</div>
+              </div>
+
+              <div class="col-12">
+                <div class="float-end">
+                  <%= link_to "Cancel", buyer_path(@buyer), class: "btn btn-outline-primary" %>
+                  <%= f.submit "Save", class: "btn btn-primary ms-1" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

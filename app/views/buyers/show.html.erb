@@ -1,0 +1,146 @@
+<section class="bg-light py-3 py-md-5 py-xl-8">
+
+    <div class="container">
+        <div class="row gy-4 gy-lg-0">
+            <div class="col-12 col-lg-4 col-xl-3">
+                <div class="row gy-4">
+                    <div class="col-12">
+                        <div class="card widget-card border-light shadow-sm">
+                            <div class="card-body">
+                                <div class="text-center mb-3">
+                                    <% if @buyer.profile_photo.attached? %>
+                                            <%= image_tag @buyer.profile_photo, class: 'rounded-circle', alt: 'lead', 
+                                                height: '100', width: '100' %>
+                                    <% else %>
+                                        <%= image_tag 'profile_photo.jpeg', class: 'rounded-circle', alt: 'lead', 
+                                            height: '100', width: '100' %>
+                                    <% end %>
+                                </div>
+                                <h5 class="text-center mb-1"><%= @buyer.first_name %> <%= @buyer.last_name %></h5>
+                                <p class="text-center text-secondary mb-2"><%= @buyer.position %></p>
+                                <p class="text-center text-secondary mb-4"><%= @buyer.industry %></p>
+                                <div class="d-grid m-0">
+                                    <a class="btn btn-primary" type="button" href="<%= edit_buyer_path %>">
+                                        <i class="bi bi-pen"></i> 
+                                        Edit Profile
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                    <div class="card widget-card border-light shadow-sm">
+                        <div class="card-header text-bg-primary">AI Strategy</div>
+                        <div class="card-body p-4">
+                            <% data = [['Strategy', 'Percentage'],
+                                ['Human', 100 - @buyer.ai_strategy.to_i],
+                                ['AI', @buyer.ai_strategy.to_i]] %>
+                            <%= pie_chart data, donut: true, legend: false, colors: ["#358753", "#4682b4"], suffix: "%", height: "250px" %>
+                            <div class="row gy-4">
+                                <div class="col-12">
+                                <div class="row align-items-center">
+                                    <div class="col-4">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                        <div class="fs-5 bsb-w-50 bsb-h-20 d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-display"></i>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="col-4">
+                                    <div class="d-flex justify-content-center">
+                                        <div>
+                                        <h6 class="m-0 text-center">Human</h6>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="col-4">
+                                    <h6 class="fs-7 d-flex align-items-center justify-content-end m-0">
+                                        <span><%= 100 - @buyer.ai_strategy.to_i %>%</span>
+                                    </h6>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-12">
+                                <div class="row align-items-center">
+                                    <div class="col-4">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                        <div class="fs-5 bsb-w-50 bsb-h-20 d-flex align-items-center justify-content-center me-5">
+                                            <i class="bi bi-robot"></i>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="col-4">
+                                    <div class="d-flex justify-content-center">
+                                        <div>
+                                        <h6 class="m-0 text-center">AI</h6>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="col-4">
+                                    <h6 class="fs-7 d-flex align-items-center justify-content-end m-0">
+                                        <span><%= @buyer.ai_strategy.to_i %>%</span>
+                                    </h6>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-8 col-xl-9">
+                <div class="card widget-card border-light shadow-sm">
+                    <div class="card-body p-4">
+                        <h5 class="mb-3">About</h5>
+                        <p class="lead mb-3"><%= @buyer.bio %></p>
+                        <h5 class="mb-3">Profile</h5>
+                        <div class="row g-0">
+                            <div class="col-5 col-md-3 border border-1 m-1">
+                                <div class="p-3">Geo Location</div>
+                            </div>
+                            <div class="col-6 col-md-8 offset-md border border-1 m-1">
+                                <div class="p-3"><%= @buyer.city %>, <%= @buyer.state %>, <%= @buyer.country %></div>
+                            </div>
+
+                            <div class="col-5 col-md-3 border border-1 m-1">
+                                <div class="p-3">Tech Projects</div>
+                            </div>
+                            <div class="col-6 col-md-8 offset-md border border-1 m-1">
+                                <div class="p-3"><%= @buyer.solutions.join(', ') %></div>
+                            </div>
+
+                            <div class="col-5 col-md-3 border border-1 m-1">
+                                <div class="p-3">Pain Points</div>
+                            </div>
+                            <div class="col-6 col-md-8 offset-md border border-1 m-1">
+                                <div class="p-3"><%= @buyer.pain_points.join(', ') %></div>
+                            </div>
+
+                            <div class="col-5 col-md-3 border border-1 m-1">
+                                <div class="p-3">Typical Stakeholders</div>
+                            </div>
+                            <div class="col-6 col-md-8 m-1">
+                                <div class="col-12 border border-1 mb-2">
+                                    <div class="p-3">George Martin
+                                        <a href="#"><i class="bi bi-box-arrow-up-right float-end text-primary"></i></a>
+                                    </div>
+                                </div>
+                                <div class="col-12 border border-1">
+                                    <div class="p-3">George Martin
+                                        <a href="#"><i class="bi bi-box-arrow-up-right float-end text-primary"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
