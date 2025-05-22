@@ -8,8 +8,9 @@ Rails.application.routes.draw do
     resources :projects, only: [ :new, :create, :edit, :update, :destroy ]
   end
 
-  resources :conversations, only: [:index, :show] do
+  resources :conversations, only: [:index, :show, :create] do
     resources :messages, only: [:create]
+    post :start, on: :collection
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

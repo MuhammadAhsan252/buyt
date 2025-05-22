@@ -1,25 +1,36 @@
 class ConversationsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_conversation, only: [:show]
+
+    def start
+        @buyer = Buyer.find(params[:buyer_id])
+        @seller = Seller.find(params[:seller_id])
+        @conversations = current_user.conversations
+        conversation = Conversation.find_by(buyer: @buyer, seller: @seller)
+        if conversation
+            redirect_to conversation_path(conversation)
+        end
+    end
+
+    def create
+        @content = params[:conversation][:content]
+        @conversation = Conversation.new(conversation_params)
+
+        if @content.present?
+            @conversation.save
+            @message = Message.create(content: @content, conversation: @conversation, sender: current_user)
+            @message.save
+            redirect_to conversation_path(@conversation)
+        end
+    end
+
   
     def index
-      if current_buyer
-        @conversations = current_buyer.conversations.includes(:seller)
-      elsif current_seller
-        @conversations = current_seller.conversations.includes(:buyer)
-      else
-        @conversations = []
-      end
+      @conversations = current_user.conversations
     end
   
     def show
-        if current_buyer
-            @conversations = current_buyer.conversations.includes(:seller)
-        elsif current_seller
-            @conversations = current_seller.conversations.includes(:buyer)
-        else
-            @conversations = []
-        end
+        @conversations = current_user.conversations
         @messages = @conversation.messages.order(created_at: :asc)
         @message = Message.new
     end
@@ -39,6 +50,10 @@ class ConversationsController < ApplicationController
   
     def current_user
       current_buyer || current_seller
+    end
+
+    def conversation_params
+      params.require(:conversation).permit(:buyer_id, :seller_id)
     end
   end
   
