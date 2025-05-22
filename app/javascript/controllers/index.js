@@ -11,3 +11,9 @@ application.register("hello", HelloController)
 import RemoteModalController from "./remote_modal_controller"
 application.register("remote-modal", RemoteModalController)
 application.register('nested-form', RailsNestedForm)
+
+import ResetFormController from "./reset_form_controller"
+application.register("reset-form", ResetFormController)
+
+import ScrollController from "./scroll_controller"
+application.register("scroll", ScrollController)

@@ -1,0 +1,8 @@
+<%= form_with model: [conversation, message], data: { turbo_stream: true, turbo_frame: "_top", controller: "reset-form", action: "turbo:submit-end->reset-form#reset"  } do |f| %>
+    <div class="input-with-button mb-3">
+        <%= f.text_field :content, class: "form-control", placeholder: "Type your message..." %>
+        <button type="submit" class="btn btn-link send-button">
+            <i class="bi bi-send"></i>
+        </button>
+    </div>
+<% end %>
