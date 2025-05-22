@@ -55,3 +55,35 @@ function initTooltip() {
   document.addEventListener('turbo:render', () => {
     initTagifyInputs();
   });
+
+  document.addEventListener("turbo:load", function () {
+    (function () {
+      const e = {
+        gridSelector: ".bsb-project-1-grid",
+        itemSelector: ".bsb-project-1-item",
+        grid: "",
+        initiated() {
+          const t = document.querySelector(e.gridSelector);
+          if (t != null) {
+            t.classList.add("bsb-project-1-initiated");
+          }
+        },
+        init() {
+          const $grid = jQuery(e.gridSelector);
+          if ($grid.length > 0) {
+            e.grid = $grid.imagesLoaded(function () {
+              e.grid.isotope({
+                itemSelector: e.itemSelector,
+                layoutMode: "packery",
+                transitionDuration: "0.8s",
+              });
+            });
+            e.initiated();
+          }
+        },
+      };
+  
+      e.init();
+    })();
+  });
+  
