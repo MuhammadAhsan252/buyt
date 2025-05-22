@@ -7,8 +7,8 @@ class Seller < ApplicationRecord
   has_many :testimonials, dependent: :destroy
   has_many :projects, dependent: :destroy
 
-  has_many :conversations
-  has_many :messages, as: :sender
+  has_many :conversations, dependent: :destroy
+  has_many :messages, as: :sender, dependent: :destroy
 
   def full_name
     "#{first_name} #{last_name}"

@@ -8,8 +8,8 @@ class Buyer < ApplicationRecord
   has_many :stakeholders, dependent: :destroy
   accepts_nested_attributes_for :stakeholders, reject_if: :all_blank, allow_destroy: true
 
-  has_many :conversations
-  has_many :messages, as: :sender
+  has_many :conversations, dependent: :destroy
+  has_many :messages, as: :sender, dependent: :destroy
 
   def full_name
     "#{first_name} #{last_name}"
