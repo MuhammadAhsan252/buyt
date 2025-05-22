@@ -19,12 +19,14 @@
                                 <h5 class="text-center mb-1"><%= @seller.first_name %> <%= @seller.last_name %></h5>
                                 <p class="text-center text-secondary mb-2"><%= @seller.position %></p>
                                 <p class="text-center text-secondary mb-4"><%= @seller.industry %></p>
-                                <div class="d-grid m-0">
-                                    <a class="btn btn-primary" type="button" href="<%= edit_seller_path %>">
-                                        <i class="bi bi-pen"></i> 
-                                        Edit Profile
-                                    </a>
-                                </div>
+                                <% if current_seller && current_seller == @seller %>
+                                    <div class="d-grid m-0">
+                                        <a class="btn btn-primary" type="button" href="<%= edit_seller_path %>">
+                                            <i class="bi bi-pen"></i> 
+                                            Edit Profile
+                                        </a>
+                                    </div>
+                                <% end %>
                             </div>
                         </div>
                     </div>
@@ -86,11 +88,12 @@
                     <div class="card-body p-4">
                         <h5 class="mb-3">
                             Testimonials
-                            <%= link_to new_seller_testimonial_path(@seller), data: {turbo_frame: "testimonial"}, class: "btn btn-sm btn-primary float-end" do %>
-                                <i class="bi bi-plus"></i>
-                                Add Testimonial
+                            <% if current_seller && current_seller == @seller %>
+                                <%= link_to new_seller_testimonial_path(@seller), data: {turbo_frame: "testimonial"}, class: "btn btn-sm btn-primary float-end" do %>
+                                    <i class="bi bi-plus"></i>
+                                    Add Testimonial
+                                <% end %>
                             <% end %>
-                            
                         </h5>
                         <div class="row g-0">
                             <%= render @seller.testimonials %>
@@ -102,9 +105,11 @@
                     <div class="card-body p-4">
                         <h5 class="mb-3">
                             Case References
-                            <%= link_to new_seller_project_path(@seller), data: {turbo_frame: "project"}, class: "btn btn-sm btn-primary float-end" do %>
-                                <i class="bi bi-plus"></i>
-                                Add Project
+                            <% if current_seller && current_seller == @seller %>
+                                <%= link_to new_seller_project_path(@seller), data: {turbo_frame: "project"}, class: "btn btn-sm btn-primary float-end" do %>
+                                    <i class="bi bi-plus"></i>
+                                    Add Project
+                                <% end %>
                             <% end %>
                         </h5>
                         <div class="row g-0">

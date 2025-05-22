@@ -3,11 +3,13 @@
         <strong><%= project.name %></strong>
         <a href="<%= project.link %>"><i class="bi bi-box-arrow-up-right float-end text-primary"></i></a>
         <p><%= project.details %></p>
-        <%= link_to edit_seller_project_path(project.seller, project), data: {turbo_frame: "project"}, class: "btn btn-sm btn-primary" do %>
-            <i class="bi bi-pencil"></i>
-        <% end %>
-        <%= link_to seller_project_path(project.seller, project), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' do %>
-            <i class="bi bi-trash"></i>
+        <% if current_seller && current_seller == @seller %>
+            <%= link_to edit_seller_project_path(project.seller, project), data: {turbo_frame: "project"}, class: "btn btn-sm btn-primary" do %>
+                <i class="bi bi-pencil"></i>
+            <% end %>
+            <%= link_to seller_project_path(project.seller, project), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' do %>
+                <i class="bi bi-trash"></i>
+            <% end %>
         <% end %>
     </div>
 </div>

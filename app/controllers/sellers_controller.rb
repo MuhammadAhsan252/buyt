@@ -1,6 +1,7 @@
 class SellersController < ApplicationController
     before_action :set_seller, only: %i[ show edit update ]
     before_action :authenticate_seller!, except: %i[ index show ]
+    before_action :authenticate_buyer!, only: %i[ index ]
     before_action :same_seller, only: %i[ edit update ]
 
     def index

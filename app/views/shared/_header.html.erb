@@ -17,6 +17,12 @@
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1">
                     <% if seller_signed_in? %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<%= buyers_path %>">Signals</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/buyer_inbox.html">Inbox</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="py-3 nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable" href="#"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,6 +46,12 @@
                             </ul>
                         </li>
                     <% elsif buyer_signed_in? %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<%= sellers_path %>">Signals</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/buyer_inbox.html">Inbox</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="py-3 nav-link dropdown-toggle bsb-dropdown-toggle-caret-disable" href="#"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
