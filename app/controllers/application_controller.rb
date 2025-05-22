@@ -7,5 +7,4 @@ class ApplicationController < ActionController::Base
   def current_user
     current_buyer || current_seller
   end
-
 end
