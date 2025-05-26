@@ -11,7 +11,7 @@
             </div>
           </div>
 
-          <%= form_with model: @buyer, local: true, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
+          <%= form_with model: @buyer, local: true, data: { controller: 'nested-form state-city', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
             <div class="row gy-3 gy-md-4 overflow-hidden">
 
               <div class="col-12">
@@ -51,17 +51,46 @@
 
               <div class="col-12 col-md-6">
                 <%= f.label :country, class: "form-label" %>
-                <%= f.select :country, options_for_select(["United States", "United Kingdom", "Canada", "Australia", "Germany"], @buyer.country), { prompt: "Select your country" }, class: "form-select", required: true %>
+                <%= f.select :country, 
+                  options_for_select(CS.countries.map { |k, v| [v, k] }.sort, @buyer.country),
+                  { prompt: "Select a country" }, 
+                  { 
+                    class: "form-control", 
+                    required: true,
+                    data: { 
+                      state_city_target: "country",
+                      action: "change->state-city#fetchStates"
+                    } 
+                  } %>
               </div>
 
               <div class="col-12 col-md-6">
                 <%= f.label :state, class: "form-label" %>
-                <%= f.text_field :state, class: "form-control", placeholder: "California", required: true %>
+                <%= f.select :state, 
+                  @buyer.country.present? ? CS.states(@buyer.country): [],
+                  {prompt: "Select a state"}, 
+                  { 
+                    class: "form-control", 
+                    required: true,
+                    data: { 
+                      state_city_target: "state",
+                      action: "change->state-city#fetchCities"
+                    } 
+                  } %>
               </div>
 
               <div class="col-12 col-md-6">
                 <%= f.label :city, class: "form-label" %>
-                <%= f.text_field :city, class: "form-control", placeholder: "Los Angeles", required: true %>
+                <%= f.select :city, 
+                  @buyer.state.present? ? CS.cities(@buyer.state): [],
+                  { prompt: "Select a city"}, 
+                  { 
+                    class: "form-control", 
+                    required: true,
+                    data: { 
+                      state_city_target: "city" 
+                    } 
+                  } %>
               </div>
 
               <div class="col-12 col-md-6">

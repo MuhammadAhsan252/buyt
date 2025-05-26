@@ -17,3 +17,6 @@ application.register("reset-form", ResetFormController)
 
 import ScrollController from "./scroll_controller"
 application.register("scroll", ScrollController)
+
+import StateCityController from "./state_city_controller"
+application.register("state-city", StateCityController)
