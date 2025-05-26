@@ -13,7 +13,7 @@ class TestimonialsController < ApplicationController
     @testimonial = Testimonial.new(testimonial_params)
     @testimonial.seller = @seller
     if @testimonial.save
-      redirect_to seller_url(@seller), notice: "Testimonial was successfully created."
+      redirect_to seller_url(@seller), notice: "Testimonial added successfully."
     else
       render :new
     end
@@ -26,7 +26,7 @@ class TestimonialsController < ApplicationController
   # PATCH/PUT /testimonials/:id
   def update
     if @testimonial.update(testimonial_params)
-      redirect_to seller_url(@seller), notice: "Testimonial was successfully updated."
+      redirect_to seller_url(@seller), notice: "Testimonial updated successfully."
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class TestimonialsController < ApplicationController
   # DELETE /testimonials/:id
   def destroy
     @testimonial.destroy
-    redirect_to seller_url(@seller), notice: "Testimonial was successfully destroyed."
+    redirect_to seller_url(@seller), notice: "Testimonial deleted successfully"
   end
 
   private
