@@ -52,7 +52,7 @@
               <div class="col-12 col-md-6">
                 <%= f.label :country, class: "form-label" %>
                 <%= f.select :country, 
-                  options_for_select(CS.countries.map { |k, v| [v, k] }.sort, @buyer.country),
+                  options_for_select(CS.countries.map { |k, v| [v, k] }.sort, @seller.country),
                   { prompt: "Select a country" }, 
                   { 
                     class: "form-control", 
@@ -67,7 +67,7 @@
               <div class="col-12 col-md-6">
                 <%= f.label :state, class: "form-label" %>
                 <%= f.select :state, 
-                  @buyer.country.present? ? CS.states(@buyer.country): [],
+                  @seller.country.present? ? CS.states(@seller.country).map { |k, v| [v, k] }.sort : [],
                   {prompt: "Select a state"}, 
                   { 
                     class: "form-control", 
@@ -82,7 +82,7 @@
               <div class="col-12 col-md-6">
                 <%= f.label :city, class: "form-label" %>
                 <%= f.select :city, 
-                  @buyer.state.present? ? CS.cities(@buyer.state): [],
+                  @seller.state.present? ? CS.cities(@seller.state) || [] : [],
                   { prompt: "Select a city"}, 
                   { 
                     class: "form-control", 

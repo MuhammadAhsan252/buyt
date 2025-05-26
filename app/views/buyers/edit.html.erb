@@ -67,7 +67,7 @@
               <div class="col-12 col-md-6">
                 <%= f.label :state, class: "form-label" %>
                 <%= f.select :state, 
-                  @buyer.country.present? ? CS.states(@buyer.country): [],
+                  @buyer.country.present? ? CS.states(@buyer.country).map { |k, v| [v, k] }.sort : [],
                   {prompt: "Select a state"}, 
                   { 
                     class: "form-control", 
@@ -82,7 +82,7 @@
               <div class="col-12 col-md-6">
                 <%= f.label :city, class: "form-label" %>
                 <%= f.select :city, 
-                  @buyer.state.present? ? CS.cities(@buyer.state): [],
+                  @buyer.state.present? ? CS.cities(@buyer.state) || [] : [],
                   { prompt: "Select a city"}, 
                   { 
                     class: "form-control", 
