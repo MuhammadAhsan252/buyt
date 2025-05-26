@@ -6,4 +6,3 @@ class CitiesController < ApplicationController
       render json: cities
     end
 end
-  

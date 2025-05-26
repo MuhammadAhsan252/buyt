@@ -5,4 +5,3 @@ class StatesController < ApplicationController
       render json: states
     end
 end
-  

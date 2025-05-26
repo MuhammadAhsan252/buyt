@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   get "/states", to: "states#index"
-  get '/cities', to: 'cities#index'
+  get "/cities", to: "cities#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
