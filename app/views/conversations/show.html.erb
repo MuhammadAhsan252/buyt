@@ -1,0 +1,83 @@
+<section class="bg-light py-3 py-md-5 py-xl-8">
+
+    <div class="container">
+        <div class="row gy-4 gy-lg-0">
+            <div class="col-12 col-lg-4 col-xl-3 d-none d-md-block">
+                <div class="row gy-4">
+                    <div class="col-12">
+                        <div class="card widget-card border-light shadow-sm">
+                            <div class="card-body">
+                                <h5>Conversations </h5>
+                                <div class="list-group">
+                                    <% if @conversations.any? %>
+                                        <% @conversations.each do |conversation| %>
+                                            <%= link_to conversation_path(conversation), class: "p-3 list-group-item list-group-item-action" do %>
+                                                <% if current_buyer %>
+                                                    <% if conversation.seller.profile_photo.attached? %>
+                                                            <%= image_tag conversation.seller.profile_photo, class: 'rounded-circle me-2', alt: 'lead', 
+                                                                height: '35', width: '35' %>
+                                                    <% else %>
+                                                        <%= image_tag 'profile_photo.jpeg', class: 'rounded-circle me-2', alt: 'lead', 
+                                                            height: '35', width: '35' %>
+                                                    <% end %>
+                                                    <%= conversation.seller.full_name %>
+                                                <% else %>
+                                                    <% if conversation.buyer.profile_photo.attached? %>
+                                                            <%= image_tag conversation.buyer.profile_photo, class: 'rounded-circle me-2', alt: 'lead', 
+                                                                height: '35', width: '35' %>
+                                                    <% else %>
+                                                        <%= image_tag 'profile_photo.jpeg', class: 'rounded-circle me-2', alt: 'lead', 
+                                                            height: '35', width: '35' %>
+                                                    <% end %>
+                                                    <%= conversation.buyer.full_name %>
+                                                <% end %>
+                                            <% end %>
+                                        <% end %>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-8 col-xl-9">
+                <div class="card widget-card border-light shadow-sm">
+                    <div class="card-header p-3 border">
+                        <% if current_buyer %>
+                          <% if @conversation.seller.profile_photo.attached? %>
+                                  <%= image_tag @conversation.seller.profile_photo, class: 'rounded-circle me-2', alt: 'lead', 
+                                      height: '35', width: '35' %>
+                          <% else %>
+                              <%= image_tag 'profile_photo.jpeg', class: 'rounded-circle me-2', alt: 'lead', 
+                                  height: '35', width: '35' %>
+                          <% end %>
+                          <strong><%= @conversation.seller.full_name %></strong>
+                        <% else %>
+                          <% if @conversation.buyer.profile_photo.attached? %>
+                                  <%= image_tag @conversation.buyer.profile_photo, class: 'rounded-circle me-2', alt: 'lead', 
+                                      height: '35', width: '35' %>
+                          <% else %>
+                              <%= image_tag 'profile_photo.jpeg', class: 'rounded-circle me-2', alt: 'lead', 
+                                  height: '35', width: '35' %>
+                          <% end %>
+                          <strong><%= @conversation.buyer.full_name %></strong>
+                        <% end %>
+                    </div>
+                    <div class="card-body p-2">
+                        <div class="messages-container chat-container">
+                            <div class="messages-list p-3 chat-box" id="messages" data-controller="scroll" data-scroll-user-id="<%= current_user.id %>"
+                              data-scroll-user-type="<%= current_user.class.name %>">
+                              <%= render @messages %>
+
+                              <%= turbo_stream_from @conversation %>                                
+                            </div>
+                        </div>
+
+                        <%= render "messages/form", conversation: @conversation, message: @message %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

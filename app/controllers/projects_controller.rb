@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
       @project = Project.new(project_params)
       @project.seller = @seller
       if @project.save
-        redirect_to seller_url(@seller), notice: "Project was successfully created."
+        redirect_to seller_url(@seller), notice: "Project added successfully."
       else
         render :new
       end
@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
     # PATCH/PUT /projects/:id
     def update
       if @project.update(project_params)
-        redirect_to seller_url(@seller), notice: "Project was successfully updated."
+        redirect_to seller_url(@seller), notice: "Project updated successfully."
       else
         render :edit
       end
@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
     # DELETE /projects/:id
     def destroy
       @project.destroy
-      redirect_to seller_url(@seller), notice: "project was successfully destroyed."
+      redirect_to seller_url(@seller), notice: "Project deleted successfully."
     end
 
     private

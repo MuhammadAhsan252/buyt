@@ -19,14 +19,19 @@
                                 <h5 class="text-center mb-1"><%= @buyer.first_name %> <%= @buyer.last_name %></h5>
                                 <p class="text-center text-secondary mb-2"><%= @buyer.position %></p>
                                 <p class="text-center text-secondary mb-4"><%= @buyer.industry %></p>
-                                <% if current_buyer && current_buyer == @buyer %>
-                                    <div class="d-grid m-0">
+                                <div class="d-grid m-0">
+                                    <% if current_buyer && current_buyer == @buyer %>
                                         <a class="btn btn-primary" type="button" href="<%= edit_buyer_path %>">
                                             <i class="bi bi-pen"></i> 
                                             Edit Profile
                                         </a>
-                                    </div>
-                                <% end %>
+                                    <% elsif current_seller %>
+                                        <%= button_to start_conversations_path(seller_id: current_seller.id, buyer_id: @buyer.id), data: {turbo: false}, class: "btn btn-primary mb-2 w-100" do %>
+                                            <i class="bi bi-envelope"></i>
+                                            Message
+                                        <% end %>
+                                    <% end %>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -17,7 +17,7 @@ class BuyersController < ApplicationController
 
     def update
         if @buyer.update(buyer_params)
-            redirect_to @buyer, notice: "Buyer was successfully updated."
+            redirect_to @buyer, notice: "Profile updated successfully."
         else
             render :edit
         end

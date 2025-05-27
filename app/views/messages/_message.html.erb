@@ -1,0 +1,7 @@
+<div class="message-bubble"  data-sender-id="<%= message.sender_id %>"
+  data-sender-type="<%= message.sender_type %>">
+    <div class="message-content">
+        <%= message.content %>
+    </div>
+    <span class="message-time"><%= message.created_at.strftime("%H:%M") %></span>
+</div>
