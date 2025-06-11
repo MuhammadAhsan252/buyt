@@ -111,7 +111,7 @@
                                 <div class="p-3">Geo Location</div>
                             </div>
                             <div class="col-6 col-md-8 offset-md border border-1 m-1">
-                                <div class="p-3"><%= @buyer.city %>, <%= @buyer.state %>, <%= @buyer.country %></div>
+                                <div class="p-3"><%= @buyer.city %> <%= CS.states(@buyer.country&.to_sym)[@buyer.state&.to_sym] %> <%= CS.countries[@buyer.country&.to_sym] %></div>
                             </div>
 
                             <div class="col-5 col-md-3 border border-1 m-1">

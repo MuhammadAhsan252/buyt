@@ -70,7 +70,7 @@
                             </div>
                             <div class="col-6 col-md-8 offset-md border border-1 m-1">
                                 <div class="p-3">
-                                    <%= @seller.city %>, <%= @seller.state %>, <%= @seller.country %>
+                                    <%= CS.states(@seller.country&.to_sym)[@seller.state&.to_sym] %> <%= CS.countries[@seller.country&.to_sym] %>
                                 </div>
                             </div>
 

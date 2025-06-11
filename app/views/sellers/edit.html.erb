@@ -100,7 +100,7 @@
 
               <div class="col-12 col-md-6">
                 <%= f.label :industry, class: "form-label" %>
-                <%= f.select :industry, options_for_select(["Information Technology", "Finance", "Healthcare", "Education", "Manufacturing"], @seller.industry), { prompt: "Select your industry" }, class: "form-select", required: true %>
+                <%= f.select :industry, options_for_select(industries, @seller.industry), { prompt: "Select your industry" }, class: "form-select", required: true %>
               </div>
 
               <div class="col-12 solutions">
