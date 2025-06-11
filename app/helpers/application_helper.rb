@@ -3,7 +3,7 @@ module ApplicationHelper
         [
           # Finance & Professional Services
           "Commercial Banking",
-          "Investment Banking", 
+          "Investment Banking",
           "Insurance (Life, Health, Property & Casualty)",
           "Wealth & Asset Management",
           "Accounting & Tax Services",
@@ -12,7 +12,7 @@ module ApplicationHelper
           "Private Equity & Venture Capital",
           "Real Estate Investment Trusts (REITs)",
           "Mortgage & Lending Services",
-          
+
           # Healthcare & Life Sciences
           "Hospitals & Health Systems",
           "Private Clinics & Medical Practices",
@@ -24,7 +24,7 @@ module ApplicationHelper
           "Dental Practices",
           "Veterinary Services",
           "Home Healthcare Providers",
-          
+
           # Manufacturing & Industrial
           "Automotive Manufacturing",
           "Aerospace & Defense",
@@ -36,7 +36,7 @@ module ApplicationHelper
           "Plastics & Rubber Products",
           "Metal Fabrication",
           "Printing & Publishing",
-          
+
           # Retail & Consumer Goods
           "E-commerce Platforms",
           "Grocery & Supermarkets",
@@ -48,7 +48,7 @@ module ApplicationHelper
           "Department Stores",
           "Convenience Stores",
           "Online Marketplaces",
-          
+
           # Transportation & Logistics
           "Freight & Cargo Services",
           "Courier & Delivery Services",
@@ -60,7 +60,7 @@ module ApplicationHelper
           "Warehousing & Storage",
           "Vehicle Rental Services",
           "Ride-Sharing & Mobility Services",
-          
+
           # Construction & Real Estate
           "Residential Construction",
           "Commercial Construction",
@@ -72,7 +72,7 @@ module ApplicationHelper
           "Building Materials Suppliers",
           "Infrastructure Development",
           "Surveying & Mapping Services",
-          
+
           # Education & Training
           "K-12 Schools",
           "Colleges & Universities",
@@ -84,7 +84,7 @@ module ApplicationHelper
           "Language Schools",
           "Test Preparation Services",
           "Educational Consulting",
-          
+
           # Science & Technology
           "Information Technology Services",
           "Software Development Firms",
@@ -96,7 +96,7 @@ module ApplicationHelper
           "Internet Service Providers",
           "Semiconductor Companies",
           "Robotics & Automation Firms",
-          
+
           # Media & Entertainment
           "Film & Television Production",
           "Music Production & Distribution",
@@ -108,7 +108,7 @@ module ApplicationHelper
           "Event Management Companies",
           "News & Journalism Outlets",
           "Digital Content Creators",
-          
+
           # Government & Non-Profit
           "Federal Government Agencies",
           "State & Local Governments",
