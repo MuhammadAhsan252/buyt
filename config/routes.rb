@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   get "/states", to: "states#index"
   get "/cities", to: "cities#index"
 
+  get "/join-waitlist", to: "home#join_waitlist", as: :join_waitlist
+  post "/join-waitlist-submit", to: "home#join_waitlist_submit", as: :join_waitlist_submit
+
+  post "/customer-query", to: "home#customer_query", as: :customer_query
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

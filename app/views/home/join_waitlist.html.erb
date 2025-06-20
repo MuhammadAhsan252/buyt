@@ -1,0 +1,75 @@
+<!-- Register -->
+<div class="bg-light py-3 py-md-5">
+    <div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6">
+        <div class="bg-white p-4 p-md-5 rounded shadow-sm">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center mb-5">
+                    <a href="#!">
+                        <%= image_tag "buyt_logo.png", alt: "Logo", width: 100, height: 50 %>
+                    </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-5">
+                    <h4>Join the waitlist</h4>
+                    </div>
+                </div>
+            </div>
+            <%= form_with(url: join_waitlist_submit_path, method: :post) do |f| %>
+            <div class="row gy-3 gy-md-4 overflow-hidden">
+                <div class="col-12">
+                    <label for="full_name" class="form-label">Full Name <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <%= f.text_field :full_name, autofocus: true, autocomplete: "Full Name", class: "form-control" %>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label for="work_email" class="form-label">Work Email <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <%= f.text_field :work_email, autofocus: true, autocomplete: "Work Email", class: "form-control" %>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label for="job_title" class="form-label">Job Title <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <%= f.text_field :job_title, autofocus: true, autocomplete: "Job Title", class: "form-control" %>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label for="company_name" class="form-label">Company Name <span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <%= f.text_field :company_name, autofocus: true, autocomplete: "Company Name", class: "form-control" %>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label for="join_as" class="form-label">Join as <span class="text-danger">*</span></label>
+                    <div class="form-check">
+                        <%= f.radio_button :join_as, 'Buyer', class:"form-check-input", id: "join_as_buyer" %>
+                        <label class="form-check-label" for="join_as_buyer">
+                            Buyer
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <%= f.radio_button :join_as, 'Seller', class:"form-check-input", id: "join_as_seller" %>
+                        <label class="form-check-label" for="join_as_seller">
+                            Seller
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12">
+                <div class="d-grid">
+                    <%= f.submit "Submit", class: "btn btn-primary btn-lg" %>
+                </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
