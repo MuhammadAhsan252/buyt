@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_22_071920) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_20_145205) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -43,6 +43,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_22_071920) do
   end
 
   create_table "buyers", force: :cascade do |t|
+    t.string "username", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "first_name"
@@ -57,6 +58,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_22_071920) do
     t.string "ai_strategy"
     t.string "solutions", default: [], array: true
     t.string "pain_points", default: [], array: true
+    t.string "slug"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -64,6 +66,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_22_071920) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_buyers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_buyers_on_reset_password_token", unique: true
+    t.index ["slug"], name: "index_buyers_on_slug", unique: true
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -73,6 +76,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_22_071920) do
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_conversations_on_buyer_id"
     t.index ["seller_id"], name: "index_conversations_on_seller_id"
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -97,6 +111,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_22_071920) do
   end
 
   create_table "sellers", force: :cascade do |t|
+    t.string "username", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "first_name"
@@ -110,6 +125,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_22_071920) do
     t.string "industry"
     t.string "solutions", default: [], array: true
     t.string "pain_points", default: [], array: true
+    t.string "slug"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -121,6 +137,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_22_071920) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_sellers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true
+    t.index ["slug"], name: "index_sellers_on_slug", unique: true
   end
 
   create_table "stakeholders", force: :cascade do |t|
