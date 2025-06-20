@@ -17,7 +17,7 @@
                                                             <%= image_tag conversation.seller.profile_photo, class: 'rounded-circle me-2', alt: 'lead', 
                                                                 height: '35', width: '35' %>
                                                     <% else %>
-                                                        <%= image_tag 'profile_photo.jpeg', class: 'rounded-circle me-2', alt: 'lead', 
+                                                        <%= image_tag 'profile_photo.png', class: 'rounded-circle me-2', alt: 'lead', 
                                                             height: '35', width: '35' %>
                                                     <% end %>
                                                     <%= conversation.seller.full_name %>
@@ -26,7 +26,7 @@
                                                             <%= image_tag conversation.buyer.profile_photo, class: 'rounded-circle me-2', alt: 'lead', 
                                                                 height: '35', width: '35' %>
                                                     <% else %>
-                                                        <%= image_tag 'profile_photo.jpeg', class: 'rounded-circle me-2', alt: 'lead', 
+                                                        <%= image_tag 'profile_photo.png', class: 'rounded-circle me-2', alt: 'lead', 
                                                             height: '35', width: '35' %>
                                                     <% end %>
                                                     <%= conversation.buyer.full_name %>
@@ -48,7 +48,7 @@
                                   <%= image_tag @conversation.seller.profile_photo, class: 'rounded-circle me-2', alt: 'lead', 
                                       height: '35', width: '35' %>
                           <% else %>
-                              <%= image_tag 'profile_photo.jpeg', class: 'rounded-circle me-2', alt: 'lead', 
+                              <%= image_tag 'profile_photo.png', class: 'rounded-circle me-2', alt: 'lead', 
                                   height: '35', width: '35' %>
                           <% end %>
                           <strong><%= @conversation.seller.full_name %></strong>
@@ -57,7 +57,7 @@
                                   <%= image_tag @conversation.buyer.profile_photo, class: 'rounded-circle me-2', alt: 'lead', 
                                       height: '35', width: '35' %>
                           <% else %>
-                              <%= image_tag 'profile_photo.jpeg', class: 'rounded-circle me-2', alt: 'lead', 
+                              <%= image_tag 'profile_photo.png', class: 'rounded-circle me-2', alt: 'lead', 
                                   height: '35', width: '35' %>
                           <% end %>
                           <strong><%= @conversation.buyer.full_name %></strong>
