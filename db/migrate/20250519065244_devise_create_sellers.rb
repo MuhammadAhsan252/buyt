@@ -4,6 +4,7 @@ class DeviseCreateSellers < ActiveRecord::Migration[8.0]
   def change
     create_table :sellers do |t|
       ## Database authenticatable
+      t.string :username,           null: false, default: ""
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
@@ -18,6 +19,7 @@ class DeviseCreateSellers < ActiveRecord::Migration[8.0]
       t.string :industry
       t.string :solutions, array: true, default: []
       t.string :pain_points, array: true, default: []
+      t.string :slug
 
       ## Recoverable
       t.string   :reset_password_token
@@ -50,6 +52,7 @@ class DeviseCreateSellers < ActiveRecord::Migration[8.0]
 
     add_index :sellers, :email,                unique: true
     add_index :sellers, :reset_password_token, unique: true
+    add_index :sellers, :slug, unique: true
     # add_index :sellers, :confirmation_token,   unique: true
     # add_index :sellers, :unlock_token,         unique: true
   end

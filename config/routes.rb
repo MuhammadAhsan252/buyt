@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :buyers
-  devise_for :sellers
+  devise_for :buyers, :controllers => {:registrations => "buyers/registrations"}
+  devise_for :sellers, :controllers => {:registrations => "sellers/registrations"}
   root "home#index"
   resources :buyers, only: [ :index, :show, :edit, :update ]
   resources :sellers, only: [ :index, :show, :edit, :update ] do

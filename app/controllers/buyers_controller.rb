@@ -25,7 +25,7 @@ class BuyersController < ApplicationController
 
     private
     def set_buyer
-        @buyer = Buyer.find(params[:id])
+        @buyer = Buyer.friendly.find(params[:id])
     end
 
     def buyer_params

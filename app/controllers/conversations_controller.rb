@@ -3,8 +3,8 @@ class ConversationsController < ApplicationController
     before_action :set_conversation, only: [ :show ]
 
     def start
-        @buyer = Buyer.find(params[:buyer_id])
-        @seller = Seller.find(params[:seller_id])
+        @buyer = Buyer.friendly.find(params[:buyer_id])
+        @seller = Seller.friendly.find(params[:seller_id])
         @conversations = current_user.conversations
         conversation = Conversation.find_by(buyer: @buyer, seller: @seller)
         if conversation

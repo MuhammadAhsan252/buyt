@@ -24,7 +24,7 @@ class SellersController < ApplicationController
 
     private
     def set_seller
-        @seller = Seller.find(params[:id])
+        @seller = Seller.friendly.find(params[:id])
     end
 
     def seller_params
