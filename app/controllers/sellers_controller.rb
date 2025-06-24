@@ -5,7 +5,7 @@ class SellersController < ApplicationController
     before_action :same_seller, only: %i[ edit update ]
 
     def index
-        @sellers = Seller.all
+        @sellers = Seller.where(country: current_buyer.country)
     end
 
     def show
