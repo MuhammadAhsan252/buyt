@@ -49,7 +49,7 @@ class ProjectsController < ApplicationController
     end
 
     def set_seller
-      @seller = Seller.find(params[:seller_id])
+      @seller = Seller.friendly.find(params[:seller_id])
       unless current_seller == @seller
           redirect_to root_path, alert: "You are not authorized to manage projects for this seller."
       end
