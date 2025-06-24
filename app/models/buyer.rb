@@ -12,7 +12,7 @@ class Buyer < ApplicationRecord
   has_many :conversations, dependent: :destroy
   has_many :messages, as: :sender, dependent: :destroy
 
-  validates :username, presence: true, uniqueness: true, length: {minimum: 3, maximum: 15}
+  validates :username, presence: true, uniqueness: true, length: { minimum: 3, maximum: 15 }
   validates :username, format: { with: /\A[a-zA-Z0-9]+\z/, message: "can only contain letters and numbers (no spaces or special characters)" }
   friendly_id :username, use: %i[slugged history]
 
@@ -23,5 +23,4 @@ class Buyer < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
-
 end

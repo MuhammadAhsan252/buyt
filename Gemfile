@@ -55,6 +55,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem "pry"
+  gem "dotenv"
 end
 
 group :test do
@@ -63,7 +64,8 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'friendly_id', '~> 5.5.0'
+gem "friendly_id", "~> 5.5.0"
 gem "devise", "~> 4.9"
 gem "chartkick"
 gem "city-state"
+gem "cloudinary"
