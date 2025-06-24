@@ -1,4 +1,4 @@
-require 'net/http'
+require "net/http"
 class HomeController < ApplicationController
   def index
   end
@@ -13,7 +13,7 @@ class HomeController < ApplicationController
       "entry.643544342" => params[:work_email],
       "entry.1204691129" => params[:job_title],
       "entry.1451180395" => params[:company_name],
-      "entry.1601835571" => params[:join_as],
+      "entry.1601835571" => params[:join_as]
     }
     res = Net::HTTP.post_form form_url, form_data
     if res.is_a?(Net::HTTPSuccess)
