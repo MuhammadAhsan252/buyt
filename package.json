@@ -9,7 +9,7 @@
     "@hotwired/turbo-rails": "^8.0.13",
     "@popperjs/core": "^2.11.8",
     "@stimulus-components/rails-nested-form": "^5.0.0",
-    "bootstrap": "^5.3.6",
+    "bootstrap": "^5.3.7",
     "chart.js": "^4.4.9",
     "chartkick": "^5.0.1",
     "esbuild": "^0.20.2"
