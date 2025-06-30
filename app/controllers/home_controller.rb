@@ -11,8 +11,8 @@ class HomeController < ApplicationController
     form_data = {
       "entry.26525576" => params[:full_name],
       "entry.643544342" => params[:work_email],
-      "entry.1204691129" => params[:job_title],
-      "entry.1451180395" => params[:company_name],
+      "entry.1451180395" => params[:job_title],
+      "entry.1204691129" => params[:company_name],
       "entry.1601835571" => params[:join_as]
     }
     res = Net::HTTP.post_form form_url, form_data
