@@ -9,8 +9,8 @@ class HomeController < ApplicationController
   def join_waitlist_submit
     form_url = URI.parse("https://docs.google.com/forms/d/e/1FAIpQLSfPo5svKyrhxr82otfdTUQlNS7Gb6o1vF0sQSTIpoEcA2Hm9g/formResponse")
     form_data = {
-      "entry.26525576" => params[:full_name],
-      "entry.643544342" => params[:work_email],
+      "entry.643544342" => params[:full_name],
+      "entry.26525576" => params[:work_email],
       "entry.1451180395" => params[:job_title],
       "entry.1204691129" => params[:company_name],
       "entry.1601835571" => params[:join_as]
