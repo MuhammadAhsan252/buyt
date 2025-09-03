@@ -17,6 +17,7 @@ class HomeController < ApplicationController
     }
     res = Net::HTTP.post_form form_url, form_data
     if res.is_a?(Net::HTTPSuccess)
+      UserMailer.survey(name: params[:full_name], email: params[:work_email]).deliver_now
       redirect_to root_path, notice: "Thank you for joining the waitlist! We'll keep you updated."
     else
       redirect_to join_waitlist_path, alert: "There was an error submitting your information. Please try again."
