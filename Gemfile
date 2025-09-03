@@ -56,6 +56,7 @@ group :development do
   gem "web-console"
   gem "pry"
   gem "dotenv"
+  gem "letter_opener", "~> 1.10"
 end
 
 group :test do
