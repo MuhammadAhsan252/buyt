@@ -56,6 +56,7 @@ group :development do
   gem "web-console"
   gem "pry"
   gem "dotenv"
+  gem "letter_opener", "~> 1.10"
 end
 
 group :test do
@@ -69,4 +70,4 @@ gem "devise", "~> 4.9"
 gem "chartkick"
 gem "city-state"
 gem "cloudinary"
-gem "redis", "~> 4.0"
+gem "redis", "~> 5.4"
